@@ -1,0 +1,52 @@
+{
+  "include": ["./polars/**/*.ts"],
+  "compileOnSave": false,
+  "compilerOptions": {
+    "allowJs": true,
+    
+    "experimentalDecorators": true,
+    "outDir": "./dist",
+    "target": "esnext",
+    "module": "ESNext",
+    "declarationMap": false,
+
+    "baseUrl": "./",
+    "rootDir": "./polars",
+    "paths": {
+      "*": ["node_modules/*"],
+      "polars/*": ["polars/*"],
+      "tslib": ["node_modules/tslib"]
+    },
+
+    "moduleResolution": "node",
+    "lib": ["DOM", "ESNext", "ESNext.AsyncIterable"],
+    "esModuleInterop": true,
+    
+
+    "declaration": true,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "noErrorTruncation": true,
+    "downlevelIteration": true,
+    "sourceMap": false,
+    "inlineSources": true,
+    "inlineSourceMap": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictBindCallApply": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "skipLibCheck": false,
+    "noUnusedLocals": false,
+    "noImplicitReturns": true,
+    "noUnusedParameters": false,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "noStrictGenericChecks": false,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

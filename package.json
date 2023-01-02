@@ -1,0 +1,48 @@
+{
+  "name": "@pola-rs/browser",
+  "collaborators": [
+    "Cory Grinstead"
+  ],
+  "version": "0.0.1-alpha.6",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/universalmind303/js-polars"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "scripts": {
+    "build:debug": "wasm-pack build --target web -d polars/core  --dev --scope pola-rs --out-name browser && rm polars/core/package.json && rm polars/core/README.md && tsc && cp -r polars/core dist/",
+    "build": "wasm-pack build --target web -d polars/core --scope pola-rs --out-name browser && rm polars/core/package.json && rm polars/core/README.md && tsc && cp -r polars/core dist/",
+    "start": "rimraf dist pkg && webpack-dev-server --open -d",
+    "test": "cargo test && wasm-pack test --headless"
+  },
+  "devDependencies": {
+    "rome": "^11.0.0",
+    "source-map-support": "^0.5.21",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.23.23",
+    "typescript": "4.9"
+  },
+  "module": "dist/index.js",
+  "files": [
+    "dist/",
+    "dist/core/",
+    "dist/core/snippets/",
+    "dist/core/browser_bg.wasm",
+    "dist/core/browser.js",
+    "dist/core/browser.d.ts"
+  ],
+  "keywords": [
+    "csv",
+    "transform",
+    "parse",
+    "json",
+    "polars",
+    "dataframe",
+    "data-processing"
+  ],
+  "packageManager": "yarn@3.3.1"
+}

@@ -1,0 +1,70 @@
+[package]
+authors = ["Cory Grinstead"]
+documentation = "https://pola-rs.github.io/polars-book/"
+edition = "2021"
+homepage = "https://github.com/pola-rs/polars"
+license = "MIT"
+name = "browser"
+repository = "https://github.com/pola-rs/js-polars"
+version = "0.0.1-alpha.3"
+
+[package.metadata.wasm-pack.profile.dev]
+wasm-opt = false
+
+[package.metadata.wasm-pack.profile.profiling]
+wasm-opt = false
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+codegen-units = 64
+lto = true
+opt-level = 's'
+
+[features]
+
+[dependencies]
+console_error_panic_hook = "0.1.7"
+js-sys = "0.3"
+paste = "1.0.6"
+rayon = "1.5"
+serde-wasm-bindgen = "0.4"
+thiserror = "1.0.20"
+wasm-bindgen = {version = "0.2"}
+wasm-bindgen-futures = "0.4"
+wasm-bindgen-rayon = {version = "1.0", features = ["no-bundler"]}
+
+[dependencies.polars]
+default-features = false
+features = [
+  "abs", # "diagonal_concat",
+  "diff", # "dot_diagram",    # "dtype-categorical",
+  "dtype-full",
+  "round_series",
+  "is_first",
+  "lazy", # "extract_jsonpath",  # "horizontal_concat",
+  "mode", # "object",  # "performant",  # "json",
+  "csv-file", # "private",  # "fmt",
+  "product",
+  "rank",
+  "reinterpret", # "rolling_window",
+  "rows", # "temporal",
+  "strings",
+  "string_justify",
+  "string_encoding",
+  "semi_anti_join",
+  "unique_counts",
+]
+git = "https://github.com/gitkwr/polars.git"
+
+[dependencies.web-sys]
+features = [
+  'console',
+]
+version = "0.3.56"
+
+[workspace]
